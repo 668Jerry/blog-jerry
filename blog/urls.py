@@ -12,5 +12,8 @@ urlpatterns = patterns('',
     url(r'^$', 'article.views.home'),
     url(r'^now/', 'article.views.now'),
     url(r'^article/(?P<pk>[0-9]+)/$', 'article.views.detail'),
+    url(r'^article/(?P<pk>[0-9]+)$', 'article.views.detail'),
+    url(r'^create/$', 'article.views.create'),
+    url(r'^create$', 'article.views.create'),
     url(r'.*/', 'article.views.helloWorld'),
 )

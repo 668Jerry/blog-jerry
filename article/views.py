@@ -36,3 +36,21 @@ def helloWorld(request):
 def detail(request, pk):
     article = Article.objects.get(pk=int(pk))
     return render(request, "detail.html", {'article': article})
+
+from django import forms
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'content', ]
+
+from django.http import HttpResponseRedirect
+
+def create(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            new_article = form.save()
+            return HttpResponseRedirect('/article/' + str(new_article.pk))
+    form = ArticleForm()
+    return render(request, 'create_article.html', {'form': form})
