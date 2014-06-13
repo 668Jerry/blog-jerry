@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'article.views.home'),
     url(r'^now/', 'article.views.now'),
+    url(r'^article/(?P<pk>[0-9]+)/$', 'article.views.detail'),
     url(r'.*/', 'article.views.helloWorld'),
 )

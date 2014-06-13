@@ -5,6 +5,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 
+from article.models import Article
+
 def home(request):
     s = "This is the Main Page."
     return HttpResponse(s)
@@ -15,4 +17,18 @@ def now(request):
     return HttpResponse(str(year) + "/" + str(month) + "/" + str(day))
 def helloWorld(request):
     s = "Bad URL!!!"
+    return HttpResponse(s)
+
+
+def detail(request, pk):
+    article = Article.objects.get(pk=int(pk))
+    s = """
+    <html>
+    <head></head>
+    <body>
+    <h1>{0}</h1>
+    {1}
+    </body>
+    </html>
+    """.format(article.title, article.content)
     return HttpResponse(s)
