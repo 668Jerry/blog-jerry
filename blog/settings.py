@@ -60,6 +60,23 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+    # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    # 'NAME': 'code.djangoproject',
+    # 'USER': 'code.djangoproject',
+    # 'HOST': SECRETS.get('trac_db_host', 'localhost'),
+    # 'PASSWORD': SECRETS.get('trac_db_password', ''),
+        # 'NAME': 'test',
+        # 'USER': 'test',
+        # 'PASSWORD': 'test123',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
+        # 'NAME': os.path.join(BASE_DIR, 'mypostgredb'),
+        # 'USER': 'jerry',
+        # 'PASSWORD': 'jerry',
+        # 'NAME': os.path.join(BASE_DIR, ''),
+        # 'NAME': 'blog_db',
     }
 }
 
