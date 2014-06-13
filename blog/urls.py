@@ -10,4 +10,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'article.views.home'),
+    url(r'^now/', 'article.views.now'),
 )
