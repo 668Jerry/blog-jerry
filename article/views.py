@@ -6,6 +6,7 @@ from django.http import HttpResponse
 import datetime
 
 from article.models import Article
+from django.shortcuts import render
 
 def home(request):
     s = "This is the Main Page."
@@ -20,15 +21,18 @@ def helloWorld(request):
     return HttpResponse(s)
 
 
+# def detail(request, pk):
+#     article = Article.objects.get(pk=int(pk))
+#     s = """
+#     <html>
+#     <head></head>
+#     <body>
+#     <h1>{0}</h1>
+#     {1}
+#     </body>
+#     </html>
+#     """.format(article.title, article.content)
+#     return HttpResponse(s)
 def detail(request, pk):
     article = Article.objects.get(pk=int(pk))
-    s = """
-    <html>
-    <head></head>
-    <body>
-    <h1>{0}</h1>
-    {1}
-    </body>
-    </html>
-    """.format(article.title, article.content)
-    return HttpResponse(s)
+    return render(request, "detail.html", {'article': article})
