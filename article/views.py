@@ -23,7 +23,7 @@ def now(request):
     year = datetime.datetime.now().year
     month = datetime.datetime.now().month
     day = datetime.datetime.now().day
-    return HttpResponse(str(year) + "/" + str(month) + "/" + str(day))
+    return HttpResponse(str(year) + "//" + str(month) + "//" + str(day))
 def helloWorld(request):
     s = "Bad URL!!!"
     return HttpResponse(s)
